@@ -1,12 +1,7 @@
-﻿using NUnit.Framework;
+﻿using EventuresWebApp_SeleniumPOMTests.PageObjects;
+using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EventuresWebApp_SeleniumPOMTests.PageObjects;
 
 namespace EventuresWebApp_SeleniumPOMTests.Tests
 {
@@ -27,10 +22,10 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             headerPage = new HeaderPage(driver);
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            driver.Close();
-        }
+        //[TearDown]
+        //public void TearDown()
+        //{
+        //    driver.Close();
+        //}
     }
 }

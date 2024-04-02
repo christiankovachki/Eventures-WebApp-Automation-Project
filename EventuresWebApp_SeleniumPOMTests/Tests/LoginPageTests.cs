@@ -1,10 +1,5 @@
 ﻿using EventuresWebApp_SeleniumPOMTests.PageObjects;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EventuresWebApp_SeleniumPOMTests.Tests
 {
