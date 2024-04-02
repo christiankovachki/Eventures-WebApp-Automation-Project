@@ -22,10 +22,10 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             headerPage = new HeaderPage(driver);
         }
 
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    driver.Close();
-        //}
+        [TearDown]
+        public void TearDown()
+        {
+            driver.Close();
+        }
     }
 }
