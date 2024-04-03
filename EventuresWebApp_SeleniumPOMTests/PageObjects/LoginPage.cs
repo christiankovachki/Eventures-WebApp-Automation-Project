@@ -38,7 +38,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             HomePage homePage = new HomePage(driver);
 
             homePage.NavigateToHomePage();
-            homePage.ClickLoginLink();
+            homePage.ClickLoginLinkFromPage();
             WaitUrlToBe(LoginUrl);
             WaitForVisibilityOfElement(_loginForm);
         }
@@ -56,6 +56,11 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         public bool isLogInFormDisplayed()
         {
             return _loginForm.Displayed;
+        }
+
+        public bool isLoginUrlCorrect()
+        {
+            return isUrlCorrect(LoginUrl);
         }
 
         public string RequiredUsernameMessage { get => _requiredUsernameMessage.Text; }
