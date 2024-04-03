@@ -24,7 +24,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var userHomePage = loginPage.LogInUser("guest", "guest");
 
             // Assert: Verify that the user is redirected to his/hers Home Page
-            Assert.True(headerPage.isLogoutLinkDisplayed(), "The Logout link is NOT displayed!");
+            Assert.True(userHomePage.isLogoutLinkDisplayed(), "The Logout link is NOT displayed!");
             Assert.That(userHomePage.WelcomeMessage, Is.EqualTo("Welcome, guest"), "The Welcome message is NOT correct!");
         }
 
