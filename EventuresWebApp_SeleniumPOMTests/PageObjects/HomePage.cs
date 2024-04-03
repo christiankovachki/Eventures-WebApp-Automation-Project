@@ -6,10 +6,16 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
     public class HomePage : BasePage
     {
         [FindsBy(How = How.CssSelector, Using = ".mt-4 [href='/Identity/Account/Login']")]
-        private IWebElement _loginLink;
+        private IWebElement _loginLinkFromPage;
+
+        [FindsBy(How = How.CssSelector, Using = "a.nav-link[href='/Identity/Account/Login']")]
+        private IWebElement _loginLinkFromNav;
 
         [FindsBy(How = How.CssSelector, Using = ".mt-4 [href='/Identity/Account/Register']")]
-        private IWebElement _registerLink;
+        private IWebElement _registerLinkFromPage;
+
+        [FindsBy(How = How.CssSelector, Using = "a.nav-link[href='/Identity/Account/Register']")]
+        private IWebElement _registerLinkFromNav;
 
         public HomePage(IWebDriver driver) : base(driver)
         {
@@ -21,15 +27,27 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             driver.Navigate().GoToUrl(BaseUrl);
         }
 
-        public LoginPage ClickLoginLink()
+        public LoginPage ClickLoginLinkFromPage()
         {
-            ClickOnElement(_loginLink);
+            ClickOnElement(_loginLinkFromPage);
             return new LoginPage(driver);
         }
 
-        public RegisterPage ClickRegisterLink()
+        public LoginPage ClickLoginLinkFromNav()
         {
-            ClickOnElement(_registerLink);
+            ClickOnElement(_loginLinkFromNav);
+            return new LoginPage(driver);
+        }
+
+        public RegisterPage ClickRegisterLinkFromPage()
+        {
+            ClickOnElement(_registerLinkFromPage);
+            return new RegisterPage(driver);
+        }
+
+        public RegisterPage ClickRegisterLinkFromNav()
+        {
+            ClickOnElement(_registerLinkFromNav);
             return new RegisterPage(driver);
         }
     }
