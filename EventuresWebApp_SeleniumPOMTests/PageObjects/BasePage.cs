@@ -38,6 +38,11 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             wait.Until(ExpectedConditions.UrlToBe(url));
         }
 
+        protected bool isUrlCorrect(string url)
+        {
+            return this.driver.Url.Equals(url);
+        }
+
         protected string GetToastMessage(WebElement webElement)
         {
             WaitForVisibilityOfElement(webElement);
