@@ -50,5 +50,15 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             ClickOnElement(_registerLinkFromNav);
             return new RegisterPage(driver);
         }
+
+        public bool isLoginLinkFromPageDisplayed() 
+        {
+            return _loginLinkFromPage.Displayed;
+        }
+
+        public bool isLoginLinkFromNavDisplayed()
+        {
+            return _loginLinkFromNav.Displayed;
+        }
     }
 }
