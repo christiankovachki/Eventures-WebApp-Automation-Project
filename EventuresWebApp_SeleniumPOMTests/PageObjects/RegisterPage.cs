@@ -49,6 +49,9 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         [FindsBy(How = How.Id, Using = "Input_LastName-error")]
         private IWebElement _lastNameFieldErrorMessage;
 
+        [FindsBy(How = How.CssSelector, Using = ".validation-summary-errors > ul > li")]
+        private IWebElement _validationSummaryErrorMessage;
+
         public RegisterPage(IWebDriver driver) : base(driver)
         {
             PageFactory.InitElements(driver, this);
@@ -78,9 +81,9 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             return new UserHomePage(driver);
         }
 
-        public bool isRegisterFormDisplayed()
+        public bool isRegisterUrlCorrect()
         {
-            return _registerForm.Displayed;
+            return isUrlCorrect(RegisterUrl);
         }
 
         public string UsernameFieldErrorMessage { get => _usernameFieldErrorMessage.Text; }
@@ -89,5 +92,6 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         public string ConfirmPasswordFieldErrorMessage { get => _confirmPasswordFieldErrorMessage.Text; }
         public string FirstNameFieldErrorMessage { get => _firstNameFieldErrorMessage.Text; }
         public string LastNameFieldErrorMessage { get => _lastNameFieldErrorMessage.Text; }
+        public string ValidationSummaryErrorMessage { get => _validationSummaryErrorMessage.Text; }
     }
 }
