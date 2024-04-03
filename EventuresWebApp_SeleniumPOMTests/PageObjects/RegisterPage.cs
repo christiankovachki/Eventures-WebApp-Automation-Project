@@ -62,7 +62,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             HomePage homePage = new HomePage(driver);
 
             homePage.NavigateToHomePage();
-            homePage.ClickRegisterLink();
+            homePage.ClickRegisterLinkFromPage();
             WaitUrlToBe(RegisterUrl);
             WaitForVisibilityOfElement(_registerForm);
         }
@@ -79,6 +79,11 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             ClickOnElement(_registerButton);
 
             return new UserHomePage(driver);
+        }
+
+        public bool isRegisterFormDisplayed()
+        {
+            return _registerForm.Displayed;
         }
 
         public bool isRegisterUrlCorrect()
