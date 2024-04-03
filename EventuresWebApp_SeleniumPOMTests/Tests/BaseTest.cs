@@ -9,7 +9,6 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
     {
         protected IWebDriver driver;
         protected HomePage homePage;
-        protected HeaderPage headerPage;
 
         [SetUp]
         public void SetUp()
@@ -19,7 +18,6 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(20);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             homePage = new HomePage(driver);
-            headerPage = new HeaderPage(driver);
         }
 
         [TearDown]
