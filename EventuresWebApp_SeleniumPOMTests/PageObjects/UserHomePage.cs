@@ -39,6 +39,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
 
         public AllEventsPage ClickAllEventsLinkFromNav()
         {
+            ClickDropdownMenuLink();
             ClickOnElement(_allEventsLinkFromNav);
             return new AllEventsPage(driver);
         }
@@ -51,6 +52,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
 
         public CreateEventPage ClickCreateEventLinkFromNav()
         {
+            ClickDropdownMenuLink();
             ClickOnElement(_createEventLinkFromNav);
             return new CreateEventPage(driver);
         }
@@ -65,6 +67,11 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         {
             WaitForVisibilityOfElement(_logoutLink);
             return _logoutLink.Displayed;
+        }
+
+        private void ClickDropdownMenuLink()
+        {
+            ClickOnElement(_eventsDropdownMenuLink);
         }
 
         public string WelcomeMessage { get => _welcomeMessage.Text; }

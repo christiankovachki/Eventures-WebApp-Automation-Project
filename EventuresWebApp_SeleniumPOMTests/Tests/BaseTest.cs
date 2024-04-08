@@ -20,10 +20,10 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             homePage = new HomePage(driver);
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            driver.Close();
-        }
+        //[TearDown]
+        //public void TearDown()
+        //{
+        //    driver.Close();
+        //}
     }
 }
