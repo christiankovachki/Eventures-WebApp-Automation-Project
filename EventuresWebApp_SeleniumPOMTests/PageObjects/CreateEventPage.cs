@@ -1,16 +1,17 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EventuresWebApp_SeleniumPOMTests.PageObjects
 {
     public class CreateEventPage : BasePage
     {
         private const string CreateEventUrl = BaseUrl + "/Events/Create";
+
+        [FindsBy(How = How.XPath, Using = "//h1[contains(text(), 'Create New Event')]")]
+        private IWebElement _pageHeader;
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(text(), 'Back to List')]")]
+        private IWebElement _backToListLink;
 
         public CreateEventPage(IWebDriver driver) : base(driver)
         {
@@ -21,5 +22,12 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         {
             return isUrlCorrect(CreateEventUrl);
         }
+
+        public bool isBackToListLinkDisplayed()
+        {
+            return _backToListLink.Displayed;
+        }
+
+        public string PageHeader { get => _pageHeader.Text; }
     }
 }
