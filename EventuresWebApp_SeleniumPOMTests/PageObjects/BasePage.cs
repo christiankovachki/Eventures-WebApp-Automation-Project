@@ -40,13 +40,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
 
         protected bool isUrlCorrect(string url)
         {
-            return this.driver.Url.Equals(url);
-        }
-
-        protected string GetToastMessage(WebElement webElement)
-        {
-            WaitForVisibilityOfElement(webElement);
-            return webElement.Text;
+            return driver.Url.Equals(url);
         }
     }
 }
