@@ -32,7 +32,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var userHomePage = registerPage.RegisterUser(username, email, password, confirmPassword, firstName, lastName);
 
             // Assert: Verify that the user is redirected to his/hers Home Page
-            Assert.True(userHomePage.isLogoutLinkDisplayed(), "The Logout link is NOT displayed!");
+            Assert.True(userHomePage.IsLogoutLinkDisplayed(), "The Logout link is NOT displayed!");
             Assert.That(userHomePage.WelcomeMessage, Is.EqualTo($"Welcome, {username}"), "The Welcome message is NOT correct!");
         }
         
@@ -47,7 +47,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             registerPage.RegisterUser(string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty);
 
             // Assert: Verify that the user is still located on the Register page and he/she sees the warning messages
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
             Assert.That(registerPage.UsernameFieldErrorMessage, Is.EqualTo("The Username field is required."), "The Username field error message is NOT correct!");
             Assert.That(registerPage.EmailFieldErrorMessage, Is.EqualTo("The Email field is required."), "The Email field error message is NOT correct!");
             Assert.That(registerPage.PasswordFieldErrorMessage, Is.EqualTo("The Password field is required."), "The Password field error message is NOT correct!");
@@ -73,7 +73,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             registerPage.RegisterUser(username, email, password, confirmPassword, firstName, lastName);
 
             // Assert: Verify that the user is still located on the Register page and he/she sees the warning messages
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
             Assert.That(registerPage.UsernameFieldErrorMessage, Is.EqualTo($"Username '{username}' is invalid, can only contain letters or digits."), "The Username field error message is NOT correct!");
             Assert.That(registerPage.ValidationSummaryErrorMessage, Is.EqualTo($"Username '{username}' is invalid, can only contain letters or digits."), "The Validation Summary error message is NOT correct!");
         }
@@ -89,7 +89,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             registerPage.RegisterUser("guest", "guest@guestmail.com", "123456", "123456", "John", "Doe");
 
             // Assert: Verify that the user is still located on the Register page and he/she sees the warning messages
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
             Assert.That(registerPage.UsernameFieldErrorMessage, Is.EqualTo("Username 'guest' is already taken."), "The Username field error message is NOT correct!");
             Assert.That(registerPage.ValidationSummaryErrorMessage, Is.EqualTo("Username 'guest' is already taken."), "The Validation Summary error message is NOT correct!");
         }
@@ -116,7 +116,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             registerPage.RegisterUser(username, email, password, confirmPassword, firstName, lastName);
 
             // Assert: Verify that the user is still located on the Register page and he/she sees the warning messages
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
             Assert.That(registerPage.EmailFieldErrorMessage, Is.EqualTo("The Email field is not a valid e-mail address."), "The Email field error message is NOT correct!");
             Assert.That(registerPage.ValidationSummaryErrorMessage, Is.EqualTo("The Email field is not a valid e-mail address."), "The Validation Summary error message is NOT correct!");
         }
@@ -132,7 +132,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             registerPage.RegisterUser("userC", "gmailtest@gmail.com", "123456", "123456", "John", "Doe");
 
             // Assert: Verify that the user is still located on the Register page and he/she sees the warning messages
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
             Assert.That(registerPage.EmailFieldErrorMessage, Is.EqualTo("The Email address is already used."), "The Email field error message is NOT correct!");
             Assert.That(registerPage.ValidationSummaryErrorMessage, Is.EqualTo("The Email address is already used."), "The Validation Summary error message is NOT correct!");
         }
@@ -149,7 +149,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             registerPage.RegisterUser(username, email, password, confirmPassword, firstName, lastName);
 
             // Assert: Verify that the user is still located on the Register page and he/she sees the warning messages
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
             Assert.That(registerPage.PasswordFieldErrorMessage, Is.EqualTo("The Password must be at least 6 and at max 20 characters long."), "The Password field error message is NOT correct!");
             Assert.That(registerPage.ValidationSummaryErrorMessage, Is.EqualTo("The Password must be at least 6 and at max 20 characters long."), "The Validation Summary error message is NOT correct!");
         }
@@ -167,7 +167,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             registerPage.RegisterUser(username, email, password, confirmPassword, firstName, lastName);
 
             // Assert: Verify that the user is still located on the Register page and he/she sees the warning messages
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
             Assert.That(registerPage.ConfirmPasswordFieldErrorMessage, Is.EqualTo("The Confirm Password must match the Password."), "The Confirm Password field error message is NOT correct!");
             Assert.That(registerPage.ValidationSummaryErrorMessage, Is.EqualTo("The Confirm Password must match the Password."), "The Validation Summary error message is NOT correct!");
         }
@@ -193,7 +193,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             registerPage.RegisterUser(username, email, password, confirmPassword, firstName, lastName);
 
             // Assert: Verify that the user is still located on the Register page and he/she sees the warning messages
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
             Assert.That(registerPage.FirstNameFieldErrorMessage, Is.EqualTo("The First Name field must consist of only letters and be at least 2 characters long."), "The First Name field error message is NOT correct!");
             Assert.That(registerPage.ValidationSummaryErrorMessage, Is.EqualTo("The First Name field must consist of only letters and be at least 2 characters long."), "The Validation Summary error message is NOT correct!");
         }
@@ -219,7 +219,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             registerPage.RegisterUser(username, email, password, confirmPassword, firstName, lastName);
 
             // Assert: Verify that the user is still located on the Register page and he/she sees the warning messages
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
             Assert.That(registerPage.LastNameFieldErrorMessage, Is.EqualTo("The Last Name field must consist of only letters and be at least 2 characters long."), "The Last Name field error message is NOT correct!");
             Assert.That(registerPage.ValidationSummaryErrorMessage, Is.EqualTo("The Last Name field must consist of only letters and be at least 2 characters long."), "The Validation Summary error message is NOT correct!");
         }
