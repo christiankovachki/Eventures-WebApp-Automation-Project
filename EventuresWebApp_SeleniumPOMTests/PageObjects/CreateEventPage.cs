@@ -55,6 +55,11 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         [FindsBy(How = How.XPath, Using = "//a[contains(text(), 'Back to List')]")]
         private IWebElement _backToListButton;
 
+        public CreateEventPage(IWebDriver driver) : base(driver)
+        {
+            PageFactory.InitElements(driver, this);
+        }
+
         public string PageHeader { get => _pageHeader.Text; }
 
         public string NameFieldErrorMessage { get => _nameFieldErrorMessage.Text; }
@@ -68,11 +73,6 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         public string TotalTicketsFieldErrorMessage { get => _totalTicketsFieldErrorMessage.Text; }
 
         public string PricePerTicketFieldErrorMessage { get => _pricePerTicketFieldErrorMessage.Text; }
-
-        public CreateEventPage(IWebDriver driver) : base(driver)
-        {
-            PageFactory.InitElements(driver, this);
-        }
 
         public void NavigateToCreateEventPage()
         {
