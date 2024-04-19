@@ -19,14 +19,15 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".table tbody tr")]
         private readonly IList<IWebElement> _tableRows;
         
-        public string PageHeader { get => _pageHeader.Text; }
-
-        public IList<IWebElement> TableRows { get => _tableRows; }
-
         public AllEventsPage(IWebDriver driver) : base(driver)
         {
             PageFactory.InitElements(driver, this);
         }
+
+        public string PageHeader { get => _pageHeader.Text; }
+
+        public IList<IWebElement> TableRows { get => _tableRows; }
+
 
         public void NavigateToAllEventsPage()
         {
@@ -53,7 +54,6 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         public CreateEventPage ClickCreateNewLink()
         {
             ClickOnElement(_createNewLink);
-
             return new CreateEventPage(driver);
         }
 
