@@ -31,6 +31,8 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             PageFactory.InitElements(driver, this);
         }
 
+        public string WelcomeMessage { get => _welcomeMessage.Text; }
+
         public AllEventsPage ClickAllEventsLinkFromPage()
         {
             ClickOnElement(_allEventsLinkFromPage);
@@ -73,7 +75,5 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         {
             ClickOnElement(_eventsDropdownMenuLink);
         }
-
-        public string WelcomeMessage { get => _welcomeMessage.Text; }
     }
 }
