@@ -33,6 +33,12 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             PageFactory.InitElements(driver, this);
         }
 
+        public string RequiredUsernameMessage { get => _requiredUsernameMessage.Text; }
+
+        public string RequiredPasswordMessage { get => _requiredPasswordMessage.Text; }
+
+        public string InvalidAttemptMessage { get => _invalidAttemptMessage.Text; }
+
         public void NavigateToLogInPage()
         {
             HomePage homePage = new HomePage(driver);
@@ -62,9 +68,5 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         {
             return isUrlCorrect(LoginUrl);
         }
-
-        public string RequiredUsernameMessage { get => _requiredUsernameMessage.Text; }
-        public string RequiredPasswordMessage { get => _requiredPasswordMessage.Text; }
-        public string InvalidAttemptMessage { get => _invalidAttemptMessage.Text; }
     }
 }
