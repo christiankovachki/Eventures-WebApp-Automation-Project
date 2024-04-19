@@ -26,8 +26,8 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             int currentEventsCount = allEventsPage.TableRows.Count;
 
             // Assert: Verify the user is redirected to the "All Events" page and the deleted event is no longer displayed on the page.
-            Assert.True(allEventsPage.isAllEventsUrlCorrect(), "The URL is NOT correct!");
-            Assert.That(currentEventsCount, Is.EqualTo(initialEventsCount - 1), "The Event count hasn't deccreased!");
+            Assert.True(allEventsPage.IsAllEventsUrlCorrect(), "The URL is NOT correct!");
+            Assert.That(currentEventsCount, Is.EqualTo(initialEventsCount - 1), "The Event count hasn't decreased!");
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             allEventsPage.EditEvent("Name", newEventName, "guest");
 
             // Assert: Verify the user is redirected to the "All Events" page and the edited event with the updated data is displayed.
-            Assert.True(allEventsPage.isAllEventsUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(allEventsPage.IsAllEventsUrlCorrect(), "The URL is NOT correct!");
             Assert.True(allEventsPage.VerifyEventIsEdited(newEventName, "guest"), "The event which had been edited doesn't have the updated data!");
         }
     }
