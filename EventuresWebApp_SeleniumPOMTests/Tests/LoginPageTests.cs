@@ -24,7 +24,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var userHomePage = loginPage.LogInUser("guest", "guest");
 
             // Assert: Verify that the user is redirected to his/hers Home Page
-            Assert.True(userHomePage.isLogoutLinkDisplayed(), "The Logout link is NOT displayed!");
+            Assert.True(userHomePage.IsLogoutLinkDisplayed(), "The Logout link is NOT displayed!");
             Assert.That(userHomePage.WelcomeMessage, Is.EqualTo("Welcome, guest"), "The Welcome message is NOT correct!");
         }
 
@@ -38,7 +38,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             loginPage.LogInUser(string.Empty, string.Empty);
 
             // Assert: Verify that the user is still located on the Log In page and he/she sees the warning messages
-            Assert.True(loginPage.isLogInFormDisplayed(), "The Log In form is NOT visible!");
+            Assert.True(loginPage.IsLogInFormDisplayed(), "The Log In form is NOT visible!");
             Assert.That(loginPage.RequiredUsernameMessage, Is.EqualTo("The Username field is required."), "The message for required Username is NOT correct!");
             Assert.That(loginPage.RequiredPasswordMessage, Is.EqualTo("The Password field is required."), "The message for required Password is NOT correct!");
         }
@@ -55,7 +55,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             loginPage.LogInUser(username, password);
 
             // Assert: Verify that the user is still located on the Log In page and he/she sees the invalid attempt message
-            Assert.True(loginPage.isLogInFormDisplayed(), "The Log In form is NOT visible!");
+            Assert.True(loginPage.IsLogInFormDisplayed(), "The Log In form is NOT visible!");
             Assert.That(loginPage.InvalidAttemptMessage, Is.EqualTo("Invalid login attempt."), "The Invalid Attempt Message is NOT correct!");
         }
     }
