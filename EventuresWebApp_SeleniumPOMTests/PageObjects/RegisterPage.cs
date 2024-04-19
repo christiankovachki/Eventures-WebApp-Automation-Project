@@ -57,6 +57,20 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             PageFactory.InitElements(driver, this);
         }
 
+        public string UsernameFieldErrorMessage { get => _usernameFieldErrorMessage.Text; }
+
+        public string EmailFieldErrorMessage { get => _emailFieldErrorMessage.Text; }
+
+        public string PasswordFieldErrorMessage { get => _passwordFieldErrorMessage.Text; }
+
+        public string ConfirmPasswordFieldErrorMessage { get => _confirmPasswordFieldErrorMessage.Text; }
+
+        public string FirstNameFieldErrorMessage { get => _firstNameFieldErrorMessage.Text; }
+
+        public string LastNameFieldErrorMessage { get => _lastNameFieldErrorMessage.Text; }
+
+        public string ValidationSummaryErrorMessage { get => _validationSummaryErrorMessage.Text; }
+
         public void NavigateToRegisterPage()
         {
             HomePage homePage = new HomePage(driver);
@@ -90,13 +104,5 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         {
             return isUrlCorrect(RegisterUrl);
         }
-
-        public string UsernameFieldErrorMessage { get => _usernameFieldErrorMessage.Text; }
-        public string EmailFieldErrorMessage { get => _emailFieldErrorMessage.Text; }
-        public string PasswordFieldErrorMessage { get => _passwordFieldErrorMessage.Text; }
-        public string ConfirmPasswordFieldErrorMessage { get => _confirmPasswordFieldErrorMessage.Text; }
-        public string FirstNameFieldErrorMessage { get => _firstNameFieldErrorMessage.Text; }
-        public string LastNameFieldErrorMessage { get => _lastNameFieldErrorMessage.Text; }
-        public string ValidationSummaryErrorMessage { get => _validationSummaryErrorMessage.Text; }
     }
 }
