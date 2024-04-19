@@ -19,8 +19,8 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             userHomePage.ClickLogoutLink();
 
             // Assert: Verify the user is successfully Logged Out from the system
-            Assert.True(homePage.isLoginLinkFromNavDisplayed(), "The Login link from the Navigation Bar is NOT displayed!");
-            Assert.True(homePage.isLoginLinkFromPageDisplayed(), "The Login link from the Main Page is NOT displayed!");
+            Assert.True(homePage.IsLoginLinkFromNavDisplayed(), "The Login link from the Navigation Bar is NOT displayed!");
+            Assert.True(homePage.IsLoginLinkFromPageDisplayed(), "The Login link from the Main Page is NOT displayed!");
         }
 
         [Test]
@@ -35,9 +35,9 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var allEventsPage = userHomePage.ClickAllEventsLinkFromPage();
 
             // Assert: Verify the URL has changed to "All Events" page and the page displays the "All Events" header and a "Create New" link.
-            Assert.True(allEventsPage.isAllEventsUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(allEventsPage.IsAllEventsUrlCorrect(), "The URL is NOT correct!");
             Assert.That(allEventsPage.PageHeader, Is.EqualTo("All Events"), "The Page Header is NOT correct!");
-            Assert.That(allEventsPage.isCreateNewLinkDisplayed(), "The Create New link is NOT displayed!");
+            Assert.That(allEventsPage.IsCreateNewLinkDisplayed(), "The Create New link is NOT displayed!");
         }
 
         [Test]
@@ -52,9 +52,9 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var allEventsPage = userHomePage.ClickAllEventsLinkFromNav();
 
             // Assert: Verify the URL has changed to "All Events" page and the page displays the "All Events" header and a "Create New" link.
-            Assert.True(allEventsPage.isAllEventsUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(allEventsPage.IsAllEventsUrlCorrect(), "The URL is NOT correct!");
             Assert.That(allEventsPage.PageHeader, Is.EqualTo("All Events"), "The Page Header is NOT correct!");
-            Assert.That(allEventsPage.isCreateNewLinkDisplayed(), "The Create New link is NOT displayed!");
+            Assert.That(allEventsPage.IsCreateNewLinkDisplayed(), "The Create New link is NOT displayed!");
         }
 
         [Test]
@@ -69,9 +69,9 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var createEventPage = userHomePage.ClickCreateEventLinkFromPage();
 
             // Assert: Verify the URL has changed to "Create Event" page and the page displays the "Create New Event" header and a "Back to List" link.
-            Assert.True(createEventPage.isCreateEventUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(createEventPage.IsCreateEventUrlCorrect(), "The URL is NOT correct!");
             Assert.That(createEventPage.PageHeader, Is.EqualTo("Create New Event"), "The Page Header is NOT correct!");
-            Assert.That(createEventPage.isBackToListLinkDisplayed(), "The Back To List link is NOT displayed!");
+            Assert.That(createEventPage.IsBackToListLinkDisplayed(), "The Back To List link is NOT displayed!");
         }
 
         // BUG: The test FAILS because the Create Event link in the Navigation bar is not clickable
@@ -87,9 +87,9 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var createEventPage = userHomePage.ClickCreateEventLinkFromNav();
 
             // Assert: Verify the URL has changed to "Create Event" page and the page displays the "Create New Event" header and a "Back to List" link.
-            Assert.True(createEventPage.isCreateEventUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(createEventPage.IsCreateEventUrlCorrect(), "The URL is NOT correct!");
             Assert.That(createEventPage.PageHeader, Is.EqualTo("Create New Event"), "The Page Header is NOT correct!");
-            Assert.That(createEventPage.isBackToListLinkDisplayed(), "The Back To List link is NOT displayed!");
+            Assert.That(createEventPage.IsBackToListLinkDisplayed(), "The Back To List link is NOT displayed!");
         }
     }
 }
