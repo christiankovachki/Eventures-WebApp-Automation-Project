@@ -16,8 +16,8 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var loginPage = homePage.ClickLoginLinkFromNav();
 
             // Assert: Verify the user is redirected to Log In page and the user can see the Log In form
-            Assert.True(loginPage.isLoginUrlCorrect(), "The URL is NOT correct!");
-            Assert.True(loginPage.isLogInFormDisplayed(), "The Log In form is NOT visible!");
+            Assert.True(loginPage.IsLoginUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(loginPage.IsLogInFormDisplayed(), "The Log In form is NOT visible!");
         }
 
         [Test]
@@ -30,8 +30,8 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var loginPage = homePage.ClickLoginLinkFromPage();
 
             // Assert: Verify the user is redirected to Log In page and the user can see the Log In form
-            Assert.True(loginPage.isLoginUrlCorrect(), "The URL is NOT correct!");
-            Assert.True(loginPage.isLogInFormDisplayed(), "The Log In form is NOT visible!");
+            Assert.True(loginPage.IsLoginUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(loginPage.IsLogInFormDisplayed(), "The Log In form is NOT visible!");
         }
 
         [Test]
@@ -44,8 +44,8 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var registerPage = homePage.ClickRegisterLinkFromNav();
 
             // Assert: Verify the user is redirected to Register page and the user can see the Register form
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
-            Assert.True(registerPage.isRegisterFormDisplayed(), "The Register form is NOT visible!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterFormDisplayed(), "The Register form is NOT visible!");
         }
 
         [Test]
@@ -58,8 +58,8 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             var registerPage = homePage.ClickRegisterLinkFromPage();
 
             // Assert: Verify the user is redirected to Register page and the user can see the Register form
-            Assert.True(registerPage.isRegisterUrlCorrect(), "The URL is NOT correct!");
-            Assert.True(registerPage.isRegisterFormDisplayed(), "The Register form is NOT visible!");
+            Assert.True(registerPage.IsRegisterUrlCorrect(), "The URL is NOT correct!");
+            Assert.True(registerPage.IsRegisterFormDisplayed(), "The Register form is NOT visible!");
         }
     }
 }
