@@ -95,14 +95,14 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             return new UserHomePage(driver);
         }
 
-        public bool isRegisterFormDisplayed()
+        public bool IsRegisterFormDisplayed()
         {
-            return _registerForm.Displayed;
+            return IsElementDisplayed(_registerForm);
         }
 
-        public bool isRegisterUrlCorrect()
+        public bool IsRegisterUrlCorrect()
         {
-            return isUrlCorrect(RegisterUrl);
+            return IsUrlCorrect(RegisterUrl);
         }
     }
 }

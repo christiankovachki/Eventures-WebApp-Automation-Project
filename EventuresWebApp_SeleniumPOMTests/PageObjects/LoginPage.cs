@@ -59,14 +59,14 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             return new UserHomePage(driver);
         }
 
-        public bool isLogInFormDisplayed()
+        public bool IsLogInFormDisplayed()
         {
-            return _loginForm.Displayed;
+            return IsElementDisplayed(_loginForm);
         }
 
-        public bool isLoginUrlCorrect()
+        public bool IsLoginUrlCorrect()
         {
-            return isUrlCorrect(LoginUrl);
+            return IsUrlCorrect(LoginUrl);
         }
     }
 }

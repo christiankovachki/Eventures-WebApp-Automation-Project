@@ -30,35 +30,39 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         public LoginPage ClickLoginLinkFromPage()
         {
             ClickOnElement(_loginLinkFromPage);
+
             return new LoginPage(driver);
         }
 
         public LoginPage ClickLoginLinkFromNav()
         {
             ClickOnElement(_loginLinkFromNav);
+
             return new LoginPage(driver);
         }
 
         public RegisterPage ClickRegisterLinkFromPage()
         {
             ClickOnElement(_registerLinkFromPage);
+
             return new RegisterPage(driver);
         }
 
         public RegisterPage ClickRegisterLinkFromNav()
         {
             ClickOnElement(_registerLinkFromNav);
+
             return new RegisterPage(driver);
         }
 
-        public bool isLoginLinkFromPageDisplayed() 
+        public bool IsLoginLinkFromPageDisplayed() 
         {
-            return _loginLinkFromPage.Displayed;
+            return IsElementDisplayed(_loginLinkFromPage);
         }
 
-        public bool isLoginLinkFromNavDisplayed()
+        public bool IsLoginLinkFromNavDisplayed()
         {
-            return _loginLinkFromNav.Displayed;
+            return IsElementDisplayed(_loginLinkFromNav);
         }
     }
 }

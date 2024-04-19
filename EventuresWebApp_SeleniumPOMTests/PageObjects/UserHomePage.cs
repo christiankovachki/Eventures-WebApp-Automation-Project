@@ -36,44 +36,43 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         public AllEventsPage ClickAllEventsLinkFromPage()
         {
             ClickOnElement(_allEventsLinkFromPage);
+
             return new AllEventsPage(driver);
         }
 
         public AllEventsPage ClickAllEventsLinkFromNav()
         {
-            ClickDropdownMenuLink();
+            ClickOnElement(_eventsDropdownMenuLink);
             ClickOnElement(_allEventsLinkFromNav);
+
             return new AllEventsPage(driver);
         }
 
         public CreateEventPage ClickCreateEventLinkFromPage()
         {
             ClickOnElement(_createEventLinkFromPage);
+
             return new CreateEventPage(driver);
         }
 
         public CreateEventPage ClickCreateEventLinkFromNav()
         {
-            ClickDropdownMenuLink();
+            ClickOnElement(_eventsDropdownMenuLink);
             ClickOnElement(_createEventLinkFromNav);
+
             return new CreateEventPage(driver);
         }
 
         public HomePage ClickLogoutLink()
         {
             ClickOnElement(_logoutLink);
+
             return new HomePage(driver);
         }
 
-        public bool isLogoutLinkDisplayed()
+        public bool IsLogoutLinkDisplayed()
         {
-            WaitForVisibilityOfElement(_logoutLink);
-            return _logoutLink.Displayed;
-        }
-
-        private void ClickDropdownMenuLink()
-        {
-            ClickOnElement(_eventsDropdownMenuLink);
+            return IsElementDisplayed(_logoutLink);
         }
     }
 }

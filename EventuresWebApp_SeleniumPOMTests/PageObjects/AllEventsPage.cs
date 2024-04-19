@@ -28,7 +28,6 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
 
         public IList<IWebElement> TableRows { get => _tableRows; }
 
-
         public void NavigateToAllEventsPage()
         {
             HomePage homePage = new HomePage(driver);
@@ -41,19 +40,20 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             WaitForVisibilityOfElement(_pageHeader);
         }
 
-        public bool isAllEventsUrlCorrect()
+        public bool IsAllEventsUrlCorrect()
         {
-            return isUrlCorrect(AllEventsUrl);
+            return IsUrlCorrect(AllEventsUrl);
         }
 
-        public bool isCreateNewLinkDisplayed()
+        public bool IsCreateNewLinkDisplayed()
         {
-            return _createNewLink.Displayed;
+            return IsElementDisplayed(_createNewLink);
         }
 
         public CreateEventPage ClickCreateNewLink()
         {
             ClickOnElement(_createNewLink);
+
             return new CreateEventPage(driver);
         }
 
@@ -165,22 +165,22 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             {
                 case "Name":
                     IWebElement nameField = driver.FindElement(By.Id("Name"));
-                    nameField.Clear();
+                    ClearFieldData(nameField);
                     TypeInField(nameField, newData);
                     break;
                 case "Place":
                     IWebElement placeField = driver.FindElement(By.Id("Place"));
-                    placeField.Clear();
+                    ClearFieldData(placeField);
                     TypeInField(placeField, newData);
                     break;
                 case "Total Tickets":
                     IWebElement totalTicketsField = driver.FindElement(By.Id("TotalTickets"));
-                    totalTicketsField.Clear();
+                    ClearFieldData(totalTicketsField);
                     TypeInField(totalTicketsField, newData);
                     break;
                 case "Price Per Ticket":
                     IWebElement pricePerTicketField = driver.FindElement(By.Id("PricePerTicket"));
-                    pricePerTicketField.Clear();
+                    ClearFieldData(pricePerTicketField);
                     TypeInField(pricePerTicketField, newData);
                     break;
             }

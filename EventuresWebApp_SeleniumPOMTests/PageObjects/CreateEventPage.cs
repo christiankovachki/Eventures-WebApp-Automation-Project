@@ -86,19 +86,20 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             WaitForVisibilityOfElement(_createNewEventForm);
         }
 
-        public bool isCreateEventUrlCorrect()
+        public bool IsCreateEventUrlCorrect()
         {
-            return isUrlCorrect(CreateEventUrl);
+            return IsUrlCorrect(CreateEventUrl);
         }
 
-        public bool isBackToListLinkDisplayed()
+        public bool IsBackToListLinkDisplayed()
         {
-            return _backToListButton.Displayed;
+            return IsElementDisplayed(_backToListButton);
         }
 
         public AllEventsPage ClickBackToListButton()
         {
             ClickOnElement(_backToListButton);
+
             return new AllEventsPage(driver);
         }
 
@@ -106,7 +107,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         {
             WaitForVisibilityOfElement(_createNewEventForm);
 
-            _totalTicketsField.Clear();
+            ClearFieldData(_totalTicketsField);
             TypeInField(_totalTicketsField, totalTickets);
 
             ClickOnElement(_createButton);
@@ -116,7 +117,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         {
             WaitForVisibilityOfElement(_createNewEventForm);
 
-            _pricePerTicketField.Clear();
+            ClearFieldData(_pricePerTicketField);
             TypeInField(_pricePerTicketField, pricePerTicket);
 
             ClickOnElement(_createButton);
@@ -126,16 +127,16 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         {
             WaitForVisibilityOfElement(_createNewEventForm);
 
-            _nameField.Clear();
+            ClearFieldData(_nameField);
             TypeInField(_nameField, eventName);
 
-            _placeField.Clear();
+            ClearFieldData(_placeField);
             TypeInField(_placeField, eventPlace);
 
-            _totalTicketsField.Clear();
+            ClearFieldData(_totalTicketsField);
             TypeInField(_totalTicketsField, totalTickets);
 
-            _pricePerTicketField.Clear();
+            ClearFieldData(_pricePerTicketField);
             TypeInField(_pricePerTicketField, pricePerTicket);
 
             ClickOnElement(_createButton);
@@ -147,12 +148,12 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
         {
             WaitForVisibilityOfElement(_createNewEventForm);
 
-            _nameField.Clear();
-            _placeField.Clear();
-            _startDate.Clear();
-            _endDate.Clear();
-            _totalTicketsField.Clear();
-            _pricePerTicketField.Clear();
+            ClearFieldData(_nameField);
+            ClearFieldData(_placeField);
+            ClearFieldData(_startDate);
+            ClearFieldData(_endDate);
+            ClearFieldData(_totalTicketsField);
+            ClearFieldData(_pricePerTicketField);
 
             ClickOnElement(_createButton);
         }

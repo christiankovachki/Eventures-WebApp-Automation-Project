@@ -38,9 +38,22 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             wait.Until(ExpectedConditions.UrlToBe(url));
         }
 
-        protected bool isUrlCorrect(string url)
+        protected bool IsUrlCorrect(string url)
         {
+            WaitUrlToBe(url);
             return driver.Url.Equals(url);
+        }
+
+        protected bool IsElementDisplayed(IWebElement webElement)
+        {
+            WaitForVisibilityOfElement(webElement);
+            return webElement.Displayed;
+        }
+
+        protected void ClearFieldData(IWebElement webElement)
+        {
+            WaitForVisibilityOfElement(webElement);
+            webElement.Clear();
         }
     }
 }
