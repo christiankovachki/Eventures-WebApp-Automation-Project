@@ -14,10 +14,10 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             loginPage = new LoginPage(driver);
         }
 
-        [Test]
+        [Test, Order(1)]
         public void Test_LoginPage_LogIn_With_Valid_Credentials()
         {
-            // Arrange: Go to Log In page 
+            // Arrange: Go to Log In page on the Eventures web application
             loginPage.NavigateToLogInPage();
 
             // Act: Populate Username and Password fields with valid credentials
@@ -28,10 +28,10 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             Assert.That(userHomePage.WelcomeMessage, Is.EqualTo("Welcome, guest"), "The Welcome message is NOT correct!");
         }
 
-        [Test]
+        [Test, Order(2)]
         public void Test_LoginPage_LogIn_With_Blank_Fields()
         {
-            // Arrange: Go to Log In page 
+            // Arrange: Go to Log In page on the Eventures web application
             loginPage.NavigateToLogInPage();
 
             // Act: Leave Username and Password fields blank
@@ -48,7 +48,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [TestCase("tseug", "tseug")]
         public void Test_LoginPage_LogIn_With_Invalid_Credentials(string username, string password)
         {
-            // Arrange: Go to Log In page 
+            // Arrange: Go to Log In page on the Eventures web application
             loginPage.NavigateToLogInPage();
 
             // Act: Populate Username and Password fields with invalid credentials
