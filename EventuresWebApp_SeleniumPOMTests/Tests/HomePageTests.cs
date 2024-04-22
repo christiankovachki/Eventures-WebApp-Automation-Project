@@ -9,7 +9,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [Test]
         public void Test_HomePage_LoginPageLink_InNavigation()
         {
-            // Arrange: Go to Home page
+            // Arrange: Go to Home page on the Eventures web application
             homePage.NavigateToHomePage();
 
             // Act: Click on the Login link, located in the Navigation bar
@@ -23,7 +23,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [Test]
         public void Test_HomePage_LoginPageLink_OnMainPage()
         {
-            // Arrange: Go to Home page
+            // Arrange: Go to Home page on the Eventures web application
             homePage.NavigateToHomePage();
 
             // Act: Click on the Login link, located on the Main page
@@ -37,7 +37,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [Test]
         public void Test_HomePage_RegisterPageLink_InNavigation()
         {
-            // Arrange: Go to Home page
+            // Arrange: Go to Home page on the Eventures web application
             homePage.NavigateToHomePage();
 
             // Act: Click on the Register link, located in the Navigation bar
@@ -51,7 +51,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [Test]
         public void Test_HomePage_RegisterPageLink_OnMainPage()
         {
-            // Arrange: Go to Home page
+            // Arrange: Go to Home page on the Eventures web application
             homePage.NavigateToHomePage();
 
             // Act: Click on the Register link, located on the Main page
