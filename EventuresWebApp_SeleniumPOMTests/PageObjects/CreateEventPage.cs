@@ -103,7 +103,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             return new AllEventsPage(driver);
         }
 
-        public void InvalidTotalTicketsDetails(string totalTickets)
+        public void EnterInvalidTotalTicketsDetails(string totalTickets)
         {
             WaitForVisibilityOfElement(_createNewEventForm);
 
@@ -113,7 +113,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             ClickOnElement(_createButton);
         }
 
-        public void InvalidPricePerTicketDetails(string pricePerTicket)
+        public void EnterInvalidPricePerTicketDetails(string pricePerTicket)
         {
             WaitForVisibilityOfElement(_createNewEventForm);
 
@@ -123,7 +123,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             ClickOnElement(_createButton);
         }
 
-        public AllEventsPage ValidEventDetails(string eventName, string eventPlace, string totalTickets, string pricePerTicket)
+        public AllEventsPage EnterValidEventDetails(string eventName, string eventPlace, string totalTickets, string pricePerTicket)
         {
             WaitForVisibilityOfElement(_createNewEventForm);
 
@@ -144,7 +144,7 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             return new AllEventsPage(driver);
         }
 
-        public void EmptyEventDetails()
+        public void ClearEventDetailsFields()
         {
             WaitForVisibilityOfElement(_createNewEventForm);
 
