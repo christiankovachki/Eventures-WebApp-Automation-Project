@@ -25,13 +25,13 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [TestCase("0us1er0", "yandextest@yandex.com", "!@#$%^&*-_+", "!@#$%^&*-_+", "elizabeth", "elizabeth")]
         public void Test_RegisterPage_Register_With_Valid_Credentials(string username, string email, string password, string confirmPassword, string firstName, string lastName) 
         {
-            // Arrange: Go to Register page 
+            // Arrange: Go to Register page on the Eventures web application
             registerPage.NavigateToRegisterPage();
 
             // Act: Populate all fields with valid credentials
             var userHomePage = registerPage.RegisterUser(username, email, password, confirmPassword, firstName, lastName);
 
-            // Assert: Verify that the user is redirected to his/hers Home Page
+            // Assert: Verify the user is successfully registered and a welcome message, containing the username is displayed on the Home page
             Assert.True(userHomePage.IsLogoutLinkDisplayed(), "The Logout link is NOT displayed!");
             Assert.That(userHomePage.WelcomeMessage, Is.EqualTo($"Welcome, {username}"), "The Welcome message is NOT correct!");
         }
@@ -40,7 +40,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [Test, Order(2)]
         public void Test_RegisterPage_Register_When_All_Fields_Are_Blank()
         {
-            // Arrange: Go to Register page 
+            // Arrange: Go to Register page on the Eventures web application
             registerPage.NavigateToRegisterPage();
 
             // Act: Leave all fields blank
@@ -66,7 +66,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [TestCase("userA 123", "mail6@somemail.com", "123456", "123456", "Li", "Li")]
         public void Test_RegisterPage_Register_With_Invalid_Username(string username, string email, string password, string confirmPassword, string firstName, string lastName)
         {
-            // Arrange: Go to Register page 
+            // Arrange: Go to Register page on the Eventures web application 
             registerPage.NavigateToRegisterPage();
 
             // Act: Populate all fields with valid credentials EXCEPT Username field
@@ -82,7 +82,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [Test, Order(4)]
         public void Test_RegisterPage_Register_With_Already_Used_Username()
         {
-            // Arrange: Go to Register page 
+            // Arrange: Go to Register page on the Eventures web application
             registerPage.NavigateToRegisterPage();
 
             // Act: Populate all fields with valid credentials EXCEPT Username field (use already taken username)
@@ -109,7 +109,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [TestCase("userB12", "randomemail#something.com", "123456", "123456", "John", "John")]
         public void Test_RegisterPage_Register_With_Invalid_Email(string username, string email, string password, string confirmPassword, string firstName, string lastName)
         {
-            // Arrange: Go to Register page 
+            // Arrange: Go to Register page on the Eventures web application
             registerPage.NavigateToRegisterPage();
 
             // Act: Populate all fields with valid credentials EXCEPT Email field
@@ -125,7 +125,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [Test, Order(6)]
         public void Test_RegisterPage_Register_With_Already_Used_Email()
         {
-            // Arrange: Go to Register page 
+            // Arrange: Go to Register page on the Eventures web application
             registerPage.NavigateToRegisterPage();
 
             // Act: Populate all fields with valid credentials EXCEPT Email field (use already taken email)
@@ -142,7 +142,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [TestCase("userD2", "validmail2@valid.com", "123456789012345678901", "123456789012345678901", "John", "Doe")] // BUG: The system allows to register with password length of 21 chars
         public void Test_RegisterPage_Register_With_Invalid_Password(string username, string email, string password, string confirmPassword, string firstName, string lastName)
         {
-            // Arrange: Go to Register page 
+            // Arrange: Go to Register page on the Eventures web application
             registerPage.NavigateToRegisterPage();
 
             // Act: Populate all fields with valid credentials EXCEPT Password field
@@ -160,7 +160,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [TestCase("userE2", "somevalid2@valid.com", "12345678901234567890", "09876543211234567890", "Peter", "Parker")]
         public void Test_RegisterPage_Register_With_Invalid_Confirm_Password(string username, string email, string password, string confirmPassword, string firstName, string lastName)
         {
-            // Arrange: Go to Register page 
+            // Arrange: Go to Register page on the Eventures web application
             registerPage.NavigateToRegisterPage();
 
             // Act: Populate all fields with valid credentials EXCEPT Confirm Password field (does NOT match Password)
@@ -186,7 +186,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [TestCase("random03040", "random03040@email.com", "123456", "123456", "John#", "Parker")]
         public void Test_RegisterPage_Register_With_Invalid_First_Name(string username, string email, string password, string confirmPassword, string firstName, string lastName)
         {
-            // Arrange: Go to Register page 
+            // Arrange: Go to Register page on the Eventures web application
             registerPage.NavigateToRegisterPage();
 
             // Act: Populate all fields with valid credentials EXCEPT First Name field
@@ -212,7 +212,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         [TestCase("random04030", "random04030@email.com", "123456", "123456", "John", "Johnson#")]
         public void Test_RegisterPage_Register_With_Invalid_Last_Name(string username, string email, string password, string confirmPassword, string firstName, string lastName)
         {
-            // Arrange: Go to Register page 
+            // Arrange: Go to Register page on the Eventures web application
             registerPage.NavigateToRegisterPage();
 
             // Act: Populate all fields with valid credentials EXCEPT Last Name field
