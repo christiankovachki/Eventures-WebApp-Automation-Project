@@ -14,23 +14,7 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             allEventsPage = new AllEventsPage(driver);
         }
 
-        [Test]
-        public void Test_AllEventsPage_DeleteEvent()
-        {
-            // Arrange: Go to All Events page and get the initial count of events
-            allEventsPage.NavigateToAllEventsPage();
-            int initialEventsCount = allEventsPage.TableRows.Count;
-
-            // Act: Find and delete an Event which has been created by the owner account "guest"
-            allEventsPage.DeleteEvent("guest");
-            int currentEventsCount = allEventsPage.TableRows.Count;
-
-            // Assert: Verify the user is redirected to the "All Events" page and the deleted event is no longer displayed on the page.
-            Assert.True(allEventsPage.IsAllEventsUrlCorrect(), "The URL is NOT correct!");
-            Assert.That(currentEventsCount, Is.EqualTo(initialEventsCount - 1), "The Event count hasn't decreased!");
-        }
-
-        [Test]
+        [Test, Order(1)]
         public void Test_AllEventsPage_EditEvent_ValidData()
         {
             // Arrange: Go to All Events page
@@ -40,9 +24,25 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             string newEventName = "Edited";
             allEventsPage.EditEvent("Name", newEventName, "guest");
 
-            // Assert: Verify the user is redirected to the "All Events" page and the edited event with the updated data is displayed.
+            // Assert: Verify the user is redirected to the All Events page and the edited event with the updated data is displayed
             Assert.True(allEventsPage.IsAllEventsUrlCorrect(), "The URL is NOT correct!");
             Assert.True(allEventsPage.VerifyEventIsEdited(newEventName, "guest"), "The event which had been edited doesn't have the updated data!");
+        }
+
+        [Test, Order(2)]
+        public void Test_AllEventsPage_DeleteEvent()
+        {
+            // Arrange: Go to All Events page and get the initial count of events
+            allEventsPage.NavigateToAllEventsPage();
+            int initialEventsCount = allEventsPage.GetTableRowsCount();
+
+            // Act: Find and delete an Event which has been created by the owner account "guest", then get the new count of events
+            allEventsPage.DeleteEvent("guest");
+            int currentEventsCount = allEventsPage.GetTableRowsCount();
+
+            // Assert: Verify the user is redirected to the All Events page and the deleted event is no longer displayed on the page
+            Assert.True(allEventsPage.IsAllEventsUrlCorrect(), "The URL is NOT correct!");
+            Assert.That(currentEventsCount, Is.EqualTo(initialEventsCount - 1), "The Event count hasn't decreased!");
         }
     }
 }
