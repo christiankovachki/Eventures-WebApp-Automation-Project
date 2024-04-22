@@ -23,14 +23,14 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
         {
             // Arrange: Go to All Events page and get the initial count of events, then go to Create Event page
             allEventsPage.NavigateToAllEventsPage();
-            int initialEventsCount = allEventsPage.TableRows.Count;
+            int initialEventsCount = allEventsPage.GetTableRowsCount();
             allEventsPage.ClickCreateNewLink();
 
-            // Act: Fill in valid event details
-            createEventPage.ValidEventDetails(eventName, eventPlace, totalTickets, pricePerTicket);
-            int currentEventsCount = allEventsPage.TableRows.Count;
+            // Act: Fill in valid details and create new event, then get the new count of events
+            createEventPage.EnterValidEventDetails(eventName, eventPlace, totalTickets, pricePerTicket);
+            int currentEventsCount = allEventsPage.GetTableRowsCount();
 
-            // Assert: Verify that the user is redirected to the "All Events" page, the events count has increased by 1 and the newly created event is displayed
+            // Assert: Verify that the user is redirected to the All Events page, the events count has increased by 1 and the newly created event is displayed
             Assert.True(allEventsPage.IsAllEventsUrlCorrect(), "The URL is NOT correct!");
             Assert.That(currentEventsCount, Is.EqualTo(initialEventsCount + 1), "The Event count hasn't increased!");
             Assert.True(allEventsPage.VerifyEventIsCreated(eventName, eventPlace, "guest"), "The newly created event isn't displayed!");
@@ -43,10 +43,10 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             // Arrange: Go to Create Event page
             createEventPage.NavigateToCreateEventPage();
 
-            // Act: Click on 'Back to List' link
+            // Act: Click on Back to List link
             createEventPage.ClickBackToListButton();
 
-            // Assert: Verify the URL has changed to "All Events" page and the page displays the "All Events" header.
+            // Assert: Verify the URL has changed to All Events page and the page displays the All Events header
             Assert.True(allEventsPage.IsAllEventsUrlCorrect(), "The URL is NOT correct!");
             Assert.That(allEventsPage.PageHeader, Is.EqualTo("All Events"), "The Page Header is NOT correct!");
         }
@@ -57,10 +57,10 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             // Arrange: Go to Create Event page
             createEventPage.NavigateToCreateEventPage();
 
-            // Act: Clear all event details and click on the 'Create' button.
-            createEventPage.EmptyEventDetails();
+            // Act: Clear all event details and try to create new event with empty field data
+            createEventPage.ClearEventDetailsFields();
 
-            // Assert: Verify that the user remains on the "Create Event" page and an error messages for each field indicating the invalid input is displayed.
+            // Assert: Verify that the user remains on the Create Event page and an error messages for each field indicating the invalid input is displayed
             Assert.True(createEventPage.IsCreateEventUrlCorrect(), "The URL is NOT correct!");
             Assert.That(createEventPage.NameFieldErrorMessage, Is.EqualTo("The Name field is required."), "The Name field error message is NOT correct!");
             Assert.That(createEventPage.PlaceFieldErrorMessage, Is.EqualTo("The Place field is required."), "The Place field error message is NOT correct!");
@@ -78,10 +78,10 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             // Arrange: Go to Create Event page
             createEventPage.NavigateToCreateEventPage();
 
-            // Act: Fill in invalid total tickets details 
-            createEventPage.InvalidTotalTicketsDetails(totalTickets);
+            // Act: Fill in invalid total tickets details and try to create new event
+            createEventPage.EnterInvalidTotalTicketsDetails(totalTickets);
 
-            // Assert: Verify that the user remains on the "Create Event" page and an error messages for the invalid input is displayed.
+            // Assert: Verify that the user remains on the Create Event page and an error messages for the invalid input is displayed
             Assert.True(createEventPage.IsCreateEventUrlCorrect(), "The URL is NOT correct!");
             Assert.That(createEventPage.TotalTicketsFieldErrorMessage, Is.EqualTo("Total Tickets must be a positive number and less than 1000."), "The Total Tickets field error message is NOT correct!");
         }
@@ -95,10 +95,10 @@ namespace EventuresWebApp_SeleniumPOMTests.Tests
             // Arrange: Go to Create Event page
             createEventPage.NavigateToCreateEventPage();
 
-            // Act: Fill in invalid price per ticket details 
-            createEventPage.InvalidPricePerTicketDetails(pricePerTicket);
+            // Act: Fill in invalid price per ticket details and try to create new event
+            createEventPage.EnterInvalidPricePerTicketDetails(pricePerTicket);
 
-            // Assert: Verify that the user remains on the "Create Event" page and an error messages for the invalid input is displayed.
+            // Assert: Verify that the user remains on the Create Event page and an error messages for the invalid input is displayed
             Assert.True(createEventPage.IsCreateEventUrlCorrect(), "The URL is NOT correct!");
             Assert.That(createEventPage.PricePerTicketFieldErrorMessage, Is.EqualTo("Price Per Ticket must be a positive number and less than 1000."), "The Price Per Ticket field error message is NOT correct!");
         }
