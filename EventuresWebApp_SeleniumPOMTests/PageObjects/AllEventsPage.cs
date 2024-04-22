@@ -26,8 +26,6 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
 
         public string PageHeader { get => _pageHeader.Text; }
 
-        public IList<IWebElement> TableRows { get => _tableRows; }
-
         public void NavigateToAllEventsPage()
         {
             HomePage homePage = new HomePage(driver);
@@ -55,6 +53,10 @@ namespace EventuresWebApp_SeleniumPOMTests.PageObjects
             ClickOnElement(_createNewLink);
 
             return new CreateEventPage(driver);
+        }
+
+        public int GetTableRowsCount() {
+            return _tableRows.Count;
         }
 
         public bool VerifyEventIsCreated(string eventName, string eventPlace, string owner)
